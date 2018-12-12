@@ -1,3 +1,17 @@
 language: go
 go:
 - master
+
+before_install:
+- if ! go get code.google.com/p/go.tools/cmd/vet; then go get golang.org/x/tools/cmd/vet; fi
+- go get -v github.com/golang/lint/golint
+- if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
+- if ! go get github.com/smartystreets/goconvey/convey; then go get -v -u github.com/smartystreets/goconvey/convey; fi
+- go get -t -v ./...
+
+script:
+- go test -race -coverprofile=coverage.txt -covermode=atomic
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
