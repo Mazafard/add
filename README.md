@@ -50,17 +50,29 @@ func main(){
 }
 ```
 
+## Tests
+
+`go test` is used for testing.
+
+Example:
+
+     go test -v 
+
+
 ## Changelog
 
 See the [changelog] before upgrading.
 
+##### Also, Thank you;
+* [Sasan Rose]
+* [fzerorubigd]
+
 ## License
 
-MIT
-
-
-
-
+Copyright (c) 2019 Mazafard.
+Licensed under the MIT license.
 
 [changelog]: https://github.com/Mazafard/add/blob/master/changelog.md
 [docs]: http://godoc.org/github.com/Mazafard/add
+[Sasan Rose]: https://github.com/sasanrose
+[fzerorubigd]: https://github.com/fzerorubigd

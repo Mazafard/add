@@ -5,6 +5,20 @@ go:
  - 1.10
  - 1.11
 
+matrix:
+  fast_finish: true
+
+before_install:
+- if ! go get code.google.com/p/go.tools/cmd/vet; then go get golang.org/x/tools/cmd/vet; fi
+- go get -v github.com/golang/lint/golint
+- if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
+
+install:
+- go get  -t -v ./...
+- go install  -v ./...
 
 script:
- - go test -v .
+- go vet ./...
+- $HOME/gopath/bin/golint .
+- go test -cpu=2 -race -v ./...
+- go test -cpu=2 -covermode=atomic ./...
