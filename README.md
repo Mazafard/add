@@ -1,7 +1,7 @@
 ADD - عدد
 =========
 
-[![Build Status](https://travis-ci.org/Mazafard/add.svg?branch=master)](https://travis-ci.org/Mzafard/add)
+[![Build Status](https://travis-ci.org/Mazafard/add.svg?branch=master)](https://travis-ci.org/Mazafard/add)
 [![GoDoc](https://godoc.org/github.com/Mazafard/add?status.svg)](https://godoc.org/github.com/Mazafard/add)
 
 ## ADD Convert Numbers to Words
