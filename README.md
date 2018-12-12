@@ -3,6 +3,7 @@ ADD - عدد
 
 [![Build Status](https://travis-ci.com/Mazafard/add.svg?branch=master)](https://travis-ci.com/Mazafard/add)
 [![GoDoc](https://godoc.org/github.com/Mazafard/add?status.svg)](https://godoc.org/github.com/Mazafard/add)
+[![codecov](https://codecov.io/gh/Mazafard/add/branch/master/graph/badge.svg)](https://codecov.io/gh/Mazafard/add)
 
 ## ADD Convert Numbers to Words
 
