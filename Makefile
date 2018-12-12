@@ -2,9 +2,12 @@ PACKAGES := add
 .PHONY: test cover  examples
 
 test:
+	go get -v -u github.com/smartystreets/goconvey/convey ;
+
 	for package in $(PACKAGES) ; do \
 		go test -v github.com/Mazafard/$$package ; \
 	done ; \
+
 
 cover:
 	echo "mode: set" > profile.cov ; \
