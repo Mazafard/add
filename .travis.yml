@@ -6,6 +6,7 @@ before_install:
 - go get -v golang.org/x/tools/cmd/cover
 - go get -t -v github.com/mattn/goveralls
 - ln -nsf $GOPATH/src/github.com/mattn/goveralls $TRAVIS_BUILD_DIR
+- ls $TRAVIS_BUILD_DIR
 script:
 
 - go test -v -covermode=count -coverprofile=coverage.out $HOME/gopath/bin/goveralls
