@@ -5,7 +5,9 @@ before_install:
 - go get -t -v ./...
 - go get -v golang.org/x/tools/cmd/cover
 - go get -t -v github.com/mattn/goveralls
-- ln -nsf $GOPATH/src/github.com/mattn/goveralls $TRAVIS_BUILD_DIR
+- echo $TRAVIS_BUILD_DIR
+- ln -nsf $TRAVIS_BUILD_DIR $GOPATH/src/github.com/mattn/goveralls
+- export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"
 - ls $TRAVIS_BUILD_DIR
 script:
 
