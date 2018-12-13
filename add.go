@@ -36,7 +36,7 @@ func create(i int) *number {
 		},
 		num: &digit{
 			number: i,
-			minus:  i < ZERO,
+			minus:  i < zero,
 			countGroupNumber: func(i int) int {
 				return int((math.Log10(math.Abs(float64(i))) / 3) + 1)
 			}(i),
@@ -49,8 +49,8 @@ func create(i int) *number {
 
 func (n *number) convert() (*number) {
 	// Zero rule
-	if n.num.number == ZERO {
-		n.txt.word = smallNumbers[ZERO]
+	if n.num.number == zero {
+		n.txt.word = smallNumbers[zero]
 	}
 
 	// create three-digit groups 12345 => {12, 345}
@@ -59,7 +59,7 @@ func (n *number) convert() (*number) {
 	// Convert small groups number to word  {12, 345} => {Twelve, Three Hundred Forty Five}
 	n.smallDigitGroupToText()
 
-	// Add mega prefix AND create string {Twelve, Three Hundred Forty Five} => "Twelve Thousand and Three Hundred Forty Five"
+	// Add mega prefix and create string {Twelve, Three Hundred Forty Five} => "Twelve Thousand and Three Hundred Forty Five"
 	n.addMegaPrifix()
 
 	return n
@@ -71,10 +71,10 @@ func (n *number) addMegaPrifix() {
 		if i > 0 {
 			space = " "
 		}
-		if n.num.groupedNumber[i] != ZERO {
+		if n.num.groupedNumber[i] != zero {
 			prefix := n.txt.groupedText[i] + space + bigNumbers[i]
-			if len(n.txt.word) != ZERO {
-				prefix += AND
+			if len(n.txt.word) != zero {
+				prefix += and
 			}
 			n.txt.word = prefix + n.txt.word
 		}
@@ -82,9 +82,9 @@ func (n *number) addMegaPrifix() {
 }
 
 func (n *number) createDigitGroup() {
-	for i := ZERO; i < n.num.countGroupNumber; i++ {
-		n.num.groupedNumber = append(n.num.groupedNumber, int(math.Mod(n.num.positiveNumber, THOUSAND)))
-		n.num.positiveNumber /= THOUSAND
+	for i := zero; i < n.num.countGroupNumber; i++ {
+		n.num.groupedNumber = append(n.num.groupedNumber, int(math.Mod(n.num.positiveNumber, thousand)))
+		n.num.positiveNumber /= thousand
 	}
 }
 
@@ -92,14 +92,14 @@ func (n *number) smallDigitGroupToText() {
 
 	for i := range n.num.groupedNumber {
 		res := ""
-		hundredsIndex := n.num.groupedNumber[i] / HUNDRED
-		hundredMod := intMod(n.num.groupedNumber[i], HUNDRED)
+		hundredsIndex := n.num.groupedNumber[i] / hundred
+		hundredMod := intMod(n.num.groupedNumber[i], hundred)
 
-		if hundredsIndex != ZERO {
+		if hundredsIndex != zero {
 			res = hundredNumber[hundredsIndex]
 
-			if hundredMod != ZERO {
-				res += AND
+			if hundredMod != zero {
+				res += and
 			}
 		}
 
@@ -109,10 +109,10 @@ func (n *number) smallDigitGroupToText() {
 		if tenIndex >= 2 {
 			res += tensNumbers[tenIndex]
 
-			if tenMod != ZERO {
-				res += AND + smallNumbers[tenMod]
+			if tenMod != zero {
+				res += and + smallNumbers[tenMod]
 			}
-		} else if hundredMod != ZERO {
+		} else if hundredMod != zero {
 			res += smallNumbers[hundredMod]
 		}
 
@@ -127,7 +127,7 @@ func intMod(x, y int) int {
 
 func (n *number) String() string {
 	if n.num.minus {
-		n.txt.word = MINUS + n.txt.word
+		n.txt.word = minus + n.txt.word
 	}
 	return fmt.Sprintf("%s", n.txt.word)
 }
