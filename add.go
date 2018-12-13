@@ -47,7 +47,7 @@ func create(i int) *number {
 	}
 }
 
-func (n *number) convert() (*number) {
+func (n *number) convert() *number {
 	// Zero rule
 	if n.num.number == zero {
 		n.txt.word = smallNumbers[zero]
