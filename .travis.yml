@@ -3,8 +3,8 @@ go:
 - master
 before_install:
 - go get -t -v ./...
-- go get -v golang.org/x/tools/cmd/cover
-- go get -t -v github.com/mattn/goveralls
+- go get -v -u golang.org/x/tools/cmd/cover
+- go get -u -v github.com/mattn/goveralls
 - echo $TRAVIS_BUILD_DIR
 - ln -nsf $TRAVIS_BUILD_DIR $GOPATH/src/github.com/mattn/goveralls
 - export GOPATH="${TRAVIS_BUILD_DIR}/Godeps/_workspace:$GOPATH"
