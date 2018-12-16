@@ -8,7 +8,7 @@ ADD - عدد
 
 ## ADD Convert Numbers to Words
 
-Extra Package for working with the `Numbers` types in Persian Language in `Go` (Golang).
+Extra Package for converting `Number` types to text in Persian language in `Go` (Golang).
 
 
 ## API usage
